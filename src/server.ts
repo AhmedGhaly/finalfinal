@@ -19,10 +19,18 @@ import { filterImageFromURL, deleteLocalFiles, validate_URL } from './util/util'
       return res.status(StatusCodes.BAD_REQUEST).send("image_url query does not exist")
     }
 
+
+
+
+
     const image_Url: string = req.query.image_url
     if (!validate_URL(image_Url)) {
       return res.status(StatusCodes.BAD_REQUEST).send("image_Url is not a valid image URL")
     }
+
+
+
+
 
     const image_file = await filterImageFromURL(image_Url)
     res.sendFile(image_file)
@@ -31,6 +39,10 @@ import { filterImageFromURL, deleteLocalFiles, validate_URL } from './util/util'
       deleteLocalFiles()
     })
   })
+
+
+
+
 
   // Root Endpoint
   // Displays a simple message to the user
